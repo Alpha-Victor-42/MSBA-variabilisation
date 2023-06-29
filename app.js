@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.2'
+      version: 'v0.0.4'
     },
     url: window.location.href,
     logo: "",
@@ -115,7 +115,6 @@ function data() {
 }
 
 function setCharte(prefix) {
-  this.logo = ""
   this.classes = {
     texts: {
       headings: {
