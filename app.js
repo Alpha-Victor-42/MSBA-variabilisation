@@ -212,6 +212,8 @@ function setCharte(prefix) {
       tags: `${prefix}-tags`
     }
   }
+
+  this.setConditionalCollectionsItems(".conditional-collection", "data-source", prefix)
 }
 
 function setConditionalCollectionsItems(_class, dataAttribute, prefix) {
@@ -234,7 +236,6 @@ function setConditionalCollectionsItems(_class, dataAttribute, prefix) {
 function getCurrentCharte() {
   switch (true) {
     default:
-      this.setConditionalCollectionsItems(".conditional-collection", "data-source", prefix)
       this.logo = 'https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg'
       this.colors = {}
       this.setCharte('oa')
