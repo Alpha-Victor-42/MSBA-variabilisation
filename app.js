@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.4'
+      version: 'v0.0.5'
     },
     url: window.location.href,
     logo: "",
@@ -32,6 +32,7 @@ function data() {
         box: ""
       },
       components: {
+        top_bar: "",
         navlinks: "",
         breadcrumb: {
           link: ""
@@ -104,17 +105,20 @@ function data() {
         footer: {
           properties: "" // Ex : background-color, ...
         },
-        tags: ""
+        tags: "",
+        cta: ""
       }
     },
     getCurrentCharte,
     setCharte,
     setConditionalCollectionsItems,
+    setColors,
+    setLogo,
     initModule
   }
 }
 
-function setCharte(prefix) {
+function setCharte(prefix, setParameters) {
   this.classes = {
     texts: {
       headings: {
@@ -136,6 +140,7 @@ function setCharte(prefix) {
       box: `${prefix}-box-shadow`
     },
     components: {
+      top_bar: `${prefix}-top-bar`,
       navlinks: `${prefix}-navlink`,
       breadcrumb: {
         link: `${prefix}-breadcrumb-link`
@@ -208,11 +213,13 @@ function setCharte(prefix) {
       footer: {
         properties: `${prefix}-footer` // Ex : background-color, ...
       },
-      tags: `${prefix}-tags`
+      tags: `${prefix}-tags`,
+      cta: `${prefix}-cta`,
     }
   }
 
   this.setConditionalCollectionsItems(".conditional-collection", "data-source", prefix)
+  setParameters()
 }
 
 function setConditionalCollectionsItems(_class, dataAttribute, prefix) {
@@ -232,14 +239,30 @@ function setConditionalCollectionsItems(_class, dataAttribute, prefix) {
   });
 }
 
+function setColors(primary, secondary, tertiary, quaternary) {
+  this.colors = {
+    primary,
+    secondary,
+    tertiary,
+    quaternary
+  }
+}
+
+function setLogo(url) {
+  this.logo = url
+}
+
 function getCurrentCharte() {
   switch (true) {
     default:
-      this.logo = 'https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg'
-      this.colors = {}
-      this.setCharte('oa')
+      this.setCharte('oa', () => {
+        this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
+        this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
+      })
       break;
   }
+
+  this.initModule()
 }
 
 function initModule() {
