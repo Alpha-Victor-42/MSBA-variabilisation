@@ -1,10 +1,14 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.5'
+      version: 'v0.0.6'
     },
     url: window.location.href,
     logo: "",
+    // Permet de définir les blocs affichés ou pas selon l'url
+    options: { 
+      faq: true
+    },
     colors: {
       primary: "",
       secondary: "",
@@ -258,6 +262,7 @@ function getCurrentCharte() {
       this.setCharte('oa', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
+        this.options.faq = true
       })
       break;
   }
