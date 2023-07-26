@@ -1,12 +1,12 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.6'
+      version: 'v0.0.7'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
-    options: { 
+    options: {
       faq: true
     },
     colors: {
@@ -17,100 +17,79 @@ function data() {
     },
     classes: {
       texts: {
+        links: "",
+        menu_title: "",
+        text_block: "",
+        rich_text: "",
+        bold_text: "",
         headings: {
           h1: "",
-          h2: "",
           h3: "",
-          h4: "",
-          h5: "",
-          h6: "",
-        },
-        bold: "",
-        paragraph: "",
-        highlight: ""
+          heading_span: "",
+          paragraph_span: ""
+        }
       },
-      borders: {
-        radius: ""
+      icons: {
+
       },
-      shadows: {
-        box: ""
+      buttons: {
+        primary: "",
+        outlined: "",
+        icon: ""
       },
       components: {
-        top_bar: "",
-        navlinks: "",
-        breadcrumb: {
-          link: ""
+        menu_contact: "",
+        situation_block: "",
+        menu_portals_container: "",
+        search_engine: {
+          form: "",
+          dropdown: "",
+          dropdown_card: "",
+          menu: ""
         },
-        situation_banner: "",
-        cards: {
-          approach: {
-            properties: "", // Ex: box-shadow, border-radius, background-color, ...
-            icon: "",
-            title: "",
-            hr: "",
-            description: "",
-            highlight_text: ""
-          },
-          posts: {
-            properties: "",
-            updated_at: "",
-            hr: "",
-            icon: "",
-            title: "",
-            summary: "",
-            highlight_text: ""
-          },
-          testimonials: {
-            properties: "",
-            stars: {
-              enabled: "",
-              disabled: ""
-            },
-            title: "",
-            comment: "",
-            hr: "",
-            author: {
-              name: "",
-              description: ""
-            }
-          },
-          portals: {
-            properties: "",
-            icon: "",
-            title: "",
-            description: ""
-          },
-          solutions: {
-            properties: "",
-            icon: "",
-            title: "",
-            tags: "",
-            hr: "",
-            type: "",
-            phone: "",
-            address: ""
-          }
+        demarche_card: {
+          card: "",
+          title: "",
+          icon: ""
         },
-        inputs: {
-          text_field: "",
-          textarea: "",
-          checkbox: "",
-          dropdown: ""
+        advice_card: {
+          card: "",
+          title: "",
+          author_name: ""
         },
-        buttons: {
-          primary: "",
-          secondary: "",
-          outlined: "",
-          disaled: ""
+        prestation_card: {
+          card: "",
+          title: ""
         },
-        header: {
-          properties: "" // Ex: background-color
+        result_search_tag: {
+          card: ""
         },
-        footer: {
-          properties: "" // Ex : background-color, ...
+        article_card: {
+          card: "",
+          title: "",
+          icon: ""
         },
-        tags: "",
-        cta: ""
+        help_block: {
+          title: "",
+          panel: ""
+        },
+        etab_information_block: {
+          title: "",
+          icon: "",
+          map: ""
+        },
+        summary_article: {
+          card: ""
+        },
+        faq: {
+          container: "",
+          accordion_header: "",
+          accordion_panel: ""
+        },
+        call_button: {
+          button: "",
+          tooltip: ""
+        }
       }
     },
     getCurrentCharte,
@@ -125,100 +104,79 @@ function data() {
 function setCharte(prefix, setParameters) {
   this.classes = {
     texts: {
+      links: `${prefix}-text_link`,
+      menu_title: `${prefix}-menu_title`,
+      text_block: `${prefix}-text_block`,
+      rich_text: `${prefix}-rich_text`,
+      bold_text: `${prefix}-bold_text`,
       headings: {
-        h1: `${prefix}-h1`,
-        h2: `${prefix}-h2`,
-        h3: `${prefix}-h3`,
-        h4: `${prefix}-h4`,
-        h5: `${prefix}-h5`,
-        h6: `${prefix}-h6`,
-      },
-      bold: `${prefix}-bold-text`,
-      paragraph: `${prefix}-paragraph`,
-      highlight: `${prefix}-highlight-text`
+        h1: `${prefix}-heading_h1`,
+        h3: `${prefix}-heading_h3`,
+        heading_span: `${prefix}-heading_span_light`,
+        paragraph_span: `${prefix}-paragraph_span_light`
+      }
     },
-    borders: {
-      radius: `${prefix}-border-radius`
+    icons: {
+
     },
-    shadows: {
-      box: `${prefix}-box-shadow`
+    buttons: {
+      primary: `${prefix}-button`,
+      outlined: `${prefix}-button_outlined`,
+      icon: `${prefix}-button_icon`
     },
     components: {
-      top_bar: `${prefix}-top-bar`,
-      navlinks: `${prefix}-navlink`,
-      breadcrumb: {
-        link: `${prefix}-breadcrumb-link`
+      menu_contact: `${prefix}-menu_contact`,
+      situation_block: `${prefix}-situation_block`,
+      menu_portals_container: `${prefix}-menu_portals_container`,
+      search_engine: {
+        form: `${prefix}-se_form`,
+        dropdown: `${prefix}-se_dropdown`,
+        dropdown_card: `${prefix}-se_dropdown_card`,
+        menu: `${prefix}-se_menu`
       },
-      situation_banner: `${prefix}-situation-banner`,
-      cards: {
-        approach: {
-          properties: `${prefix}-card-approach`, // Ex: box-shadow, border-radius, background-color, ...
-          icon: `${prefix}-card-approach-icon`,
-          title: `${prefix}-card-approach-title`,
-          hr: `${prefix}-card-approach-hr`,
-          description: `${prefix}-card-approach-desc`,
-          highlight_text: `${prefix}-card-approach-highlight-text`
-        },
-        posts: {
-          properties: `${prefix}-card-post`,
-          updated_at: `${prefix}-card-post-updated-at`,
-          hr: `${prefix}-card-post-hr`,
-          icon: `${prefix}-card-post-icon`,
-          title: `${prefix}-card-post-title`,
-          summary: `${prefix}-card-post-summary`,
-          highlight_text: `${prefix}-card-post-highlight-text`
-        },
-        testimonials: {
-          properties: `${prefix}-card-testimonials-hr`,
-          stars: {
-            enabled: `${prefix}-card-testimonials-star-enabled`,
-            disabled: `${prefix}-card-testimonials-star-disabled`
-          },
-          title: `${prefix}-card-testimonials-title`,
-          comment: `${prefix}-card-testimonials-comment`,
-          hr: `${prefix}-card-testimonials-hr`,
-          author: {
-            name: `${prefix}-card-testimonials-author-name`,
-            description: `${prefix}-card-testimonials-author-desc`
-          }
-        },
-        portals: {
-          properties: `${prefix}-card-portals`,
-          icon: `${prefix}-card-portals-icon`,
-          title: `${prefix}-card-portals-title`,
-          description: `${prefix}-card-portals-desc`
-        },
-        solutions: {
-          properties: `${prefix}-card-solutions`,
-          icon: `${prefix}-card-solutions-icon`,
-          title: `${prefix}-card-solutions-title`,
-          tags: `${prefix}-card-solutions-tags`,
-          hr: `${prefix}-card-solutions-hr`,
-          type: `${prefix}-card-solutions-type`,
-          phone: `${prefix}-card-solutions-phone`,
-          address: `${prefix}-card-solutions-address`
-        }
+      demarche_card: {
+        card: `${prefix}-demarche_card`,
+        title: `${prefix}-demarche_title`,
+        icon: `${prefix}-demarche_card_icon`
       },
-      inputs: {
-        text_field: `${prefix}-input-text`,
-        textarea: `${prefix}-input-textarea`,
-        checkbox: `${prefix}-input-checkbox`,
-        dropdown: `${prefix}-input-dropdown`
+      advice_card: {
+        card: `${prefix}-advice_card`,
+        title: `${prefix}-advice_title`,
+        author_name: `${prefix}-author_name`
       },
-      buttons: {
-        primary: `${prefix}-button-primary`,
-        secondary: `${prefix}-button-secondary`,
-        outlined: `${prefix}-button-outlined`,
-        disabled: `${prefix}-button-disabled`
+      prestation_card: {
+        card: `${prefix}-prestation_card`,
+        title: `${prefix}-prestation_title`
       },
-      header: {
-        properties: `${prefix}-header` // Ex: background-color
+      result_search_tag: {
+        card: `${prefix}-result_search_tag`
       },
-      footer: {
-        properties: `${prefix}-footer` // Ex : background-color, ...
+      article_card: {
+        card: `${prefix}-article_card`,
+        title: `${prefix}-article_title`,
+        icon: `${prefix}-article_icon`
       },
-      tags: `${prefix}-tags`,
-      cta: `${prefix}-cta`,
+      help_block: {
+        title: `${prefix}-help_block_title`,
+        panel: `${prefix}-help_block_panel`
+      },
+      etab_information_block: {
+        title: `${prefix}-result_information_title`,
+        icon: `${prefix}-purple_icon`,
+        map: `${prefix}-result_map`
+      },
+      summary_article: {
+        card: `${prefix}-summary_article_title`
+      },
+      faq: {
+        container: `${prefix}-faq`,
+        accordion_header: `${prefix}-faq_accordion_header`,
+        accordion_panel: `${prefix}-faq_accordion_panel`
+      },
+      call_button: {
+        button: `${prefix}-call_fixed_button`,
+        tooltip: `${prefix}-call_button_tooltip`
+      }
     }
   }
 
@@ -259,7 +217,7 @@ function setLogo(url) {
 function getCurrentCharte() {
   switch (true) {
     default:
-      this.setCharte('oa', () => {
+      this.setCharte('msba-2023.webflow.io', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
         this.options.faq = true
