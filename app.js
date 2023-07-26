@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.7'
+      version: 'v0.0.8'
     },
     url: window.location.href,
     logo: "",
@@ -217,7 +217,7 @@ function setLogo(url) {
 function getCurrentCharte() {
   switch (true) {
     default:
-      this.setCharte('msba-2023.webflow.io', () => {
+      this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
         this.options.faq = true
