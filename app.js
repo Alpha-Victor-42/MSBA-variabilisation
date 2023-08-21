@@ -1,13 +1,15 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.8'
+      version: 'v0.0.9'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
-      faq: true
+      home: {
+        faq: true
+      }
     },
     colors: {
       primary: "",
@@ -35,9 +37,18 @@ function data() {
       buttons: {
         primary: "",
         outlined: "",
-        icon: ""
+        icon: "",
+        outlined_light: "",
+        outlined_full: "",
+        disabled: ""
       },
       components: {
+        header: {
+          background: ""
+        },
+        footer: {
+          background: ""
+        },
         menu_contact: "",
         situation_block: "",
         menu_portals_container: "",
@@ -46,6 +57,9 @@ function data() {
           dropdown: "",
           dropdown_card: "",
           menu: ""
+        },
+        portals_block: {
+          card: ""
         },
         demarche_card: {
           card: "",
@@ -122,9 +136,18 @@ function setCharte(prefix, setParameters) {
     buttons: {
       primary: `${prefix}-button`,
       outlined: `${prefix}-button_outlined`,
+      outlined_light: `${prefix}-button_outlined_light`,
+      outlined_full: `${prefix}-button_outlined_full`,
+      disabled: `${prefix}-button_disabled`,
       icon: `${prefix}-button_icon`
     },
     components: {
+      header: {
+        background: `${prefix}-header_bg`
+      },
+      footer: {
+        background: `${prefix}-footer_bg`
+      },
       menu_contact: `${prefix}-menu_contact`,
       situation_block: `${prefix}-situation_block`,
       menu_portals_container: `${prefix}-menu_portals_container`,
@@ -133,6 +156,9 @@ function setCharte(prefix, setParameters) {
         dropdown: `${prefix}-se_dropdown`,
         dropdown_card: `${prefix}-se_dropdown_card`,
         menu: `${prefix}-se_menu`
+      },
+      portals_block: {
+        card: `${prefix}-portals_block_card`
       },
       demarche_card: {
         card: `${prefix}-demarche_card`,
