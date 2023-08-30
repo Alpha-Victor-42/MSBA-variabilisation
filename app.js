@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.9'
+      version: 'v0.0.10'
     },
     url: window.location.href,
     logo: "",
@@ -242,6 +242,12 @@ function setLogo(url) {
 
 function getCurrentCharte() {
   switch (true) {
+    case this.url.includes('?charte=av42'):
+      this.setCharte('av42', () => {
+        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef0df88a3b67f03db8fa17_62dfe4b2ecd271c72e124763_logo%20blanc.svg')
+        this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
+          this.options.faq = false
+      })
     default:
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
