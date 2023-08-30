@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.13'
+      version: 'v0.0.14'
     },
     url: window.location.href,
     logo: "",
@@ -244,7 +244,7 @@ function getCurrentCharte() {
   switch (true) {
     case this.url.includes('av42'):
       this.setCharte('av42', () => {
-        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef0df88a3b67f03db8fa17_62dfe4b2ecd271c72e124763_logo%20blanc.svg')
+        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef1e3e0443573df843b6df_av42dark.png')
         this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
           this.options.home.faq = false
       })
