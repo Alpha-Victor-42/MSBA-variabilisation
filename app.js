@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.10'
+      version: 'v0.0.13'
     },
     url: window.location.href,
     logo: "",
@@ -249,7 +249,7 @@ function getCurrentCharte() {
           this.options.home.faq = false
       })
     break;
-    
+
     default:
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
