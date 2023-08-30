@@ -248,6 +248,8 @@ function getCurrentCharte() {
         this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
           this.options.home.faq = false
       })
+    break;
+    
     default:
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
