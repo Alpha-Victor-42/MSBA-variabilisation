@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.16'
+      version: 'v0.0.17'
     },
     url: window.location.href,
     logo: "",
@@ -213,7 +213,7 @@ function setCharte(prefix, setParameters) {
     }
   }
 
-  this.setConditionalCollectionsItems("#conditional-collection", "data-source", prefix)
+  this.setConditionalCollectionsItems("[data-conditional-collection]", "data-source", prefix)
   setParameters()
 }
 
