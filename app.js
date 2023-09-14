@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.15'
+      version: 'v0.0.16'
     },
     url: window.location.href,
     logo: "",
@@ -226,10 +226,12 @@ function setConditionalCollectionsItems(_class, dataAttribute, prefix) {
 
     children.forEach(child => {
       const dataSourceValue = child.getAttribute(dataAttribute);
-
-      if (dataSourceValue !== prefix && dataSourceValue !== null) {
-        child.style.display = "none"
+      if (dataSourceValue !== null) {
+        if (!dataSourceValue.includes(prefix)) {
+          child.style.display = "none"
+        }
       }
+
     });
   });
 }
@@ -255,7 +257,7 @@ function getCurrentCharte() {
         this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
           this.options.home.faq = false
       })
-    break;
+      break;
 
     default:
       this.setCharte('vyv', () => {
@@ -263,7 +265,7 @@ function getCurrentCharte() {
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
         this.options.home.faq = true
       })
-    break;
+      break;
   }
 
   this.initModule()
