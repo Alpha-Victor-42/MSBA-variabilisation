@@ -1,14 +1,21 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.14'
+      version: 'v0.0.15'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
       home: {
-        faq: true
+        situation: true,
+        search_engine: true,
+        approche: true,
+        actualite: true,
+        testimonials: true,
+        cta: true,
+        faq: true,
+        seo_content: true
       }
     },
     colors: {
@@ -206,7 +213,7 @@ function setCharte(prefix, setParameters) {
     }
   }
 
-  this.setConditionalCollectionsItems(".conditional-collection", "data-source", prefix)
+  this.setConditionalCollectionsItems("#conditional-collection", "data-source", prefix)
   setParameters()
 }
 
