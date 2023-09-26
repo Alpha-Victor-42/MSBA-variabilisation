@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.17'
+      version: 'v0.0.18'
     },
     url: window.location.href,
     logo: "",
@@ -118,7 +118,8 @@ function data() {
     setConditionalCollectionsItems,
     setColors,
     setLogo,
-    initModule
+    initModule,
+    noEnter
   }
 }
 
@@ -269,6 +270,22 @@ function getCurrentCharte() {
   }
 
   this.initModule()
+}
+
+function noEnter(event) {
+
+  // Global function for blocking defaults webflow text fields */
+
+  /* 
+  * add this custom attribute on all webflow text fields
+  * [key: x-on:keypress]
+  * [value: noEnter(event)] 
+  */
+
+  if(event.key === "Enter") {
+    event.preventDefault()
+  }
+  
 }
 
 function initModule() {
