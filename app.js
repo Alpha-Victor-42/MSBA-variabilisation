@@ -256,10 +256,16 @@ function getCurrentCharte() {
       this.setCharte('av42', () => {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef1e3e0443573df843b6df_av42dark.png')
         this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
-          this.options.home.faq = false
+        this.options.home.faq = false
       })
       break;
-
+    case this.url.includes('hm'):
+      this.setCharte('hm', () => {
+        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/655c71ecb736f6193d11eeb9_logo-hm-v2.svg')
+        this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
+        this.options.home.faq = false
+      })
+    break;
     default:
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
