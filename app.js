@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.0.19'
+      version: 'v0.0.20'
     },
     url: window.location.href,
     logo: "",
@@ -25,6 +25,7 @@ function data() {
       quaternary: ""
     },
     classes: {
+      body: "",
       texts: {
         links: "",
         menu_title: "",
@@ -125,6 +126,7 @@ function data() {
 
 function setCharte(prefix, setParameters) {
   this.classes = {
+    body: `${prefix}-body`,
     texts: {
       links: `${prefix}-text_link`,
       menu_title: `${prefix}-menu_title`,
