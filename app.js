@@ -1,12 +1,13 @@
 function data() {
   return {
     config: {
-      version: 'v0.1.0'
+      version: 'v0.1.1'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
+      currentCharte: '',
       home: {
         situation: true,
         search_engine: true,
@@ -125,6 +126,8 @@ function data() {
 }
 
 function setCharte(prefix, setParameters) {
+  this.options.currentCharte = prefix
+
   this.classes = {
     body: `${prefix}-body`,
     texts: {
