@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v0.1.1'
+      version: 'v0.1.2'
     },
     url: window.location.href,
     logo: "",
@@ -121,6 +121,7 @@ function data() {
     setColors,
     setLogo,
     initModule,
+    desindexation,
     noEnter
   }
 }
@@ -262,6 +263,8 @@ function getCurrentCharte() {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef1e3e0443573df843b6df_av42dark.png')
         this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
         this.options.home.faq = false
+
+        this.desindexation()
       })
       break;
     case this.url.includes('hm'):
@@ -269,6 +272,8 @@ function getCurrentCharte() {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/655c71ecb736f6193d11eeb9_logo-hm-v2.svg')
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
         this.options.home.faq = false
+
+        this.desindexation()
       })
     break;
     default:
@@ -281,6 +286,15 @@ function getCurrentCharte() {
   }
 
   this.initModule()
+}
+
+function desindexation() {
+  const meta = document.createElement('meta')
+
+  meta.setAttribute('name', 'robots')
+  meta.setAttribute('content', 'noindex, nofollow')
+
+  document.getElementsByTagName('head')[0].appendChild(meta)
 }
 
 function noEnter(event) {
