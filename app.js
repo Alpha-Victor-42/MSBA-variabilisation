@@ -1,23 +1,25 @@
 function data() {
   return {
     config: {
-      version: 'v1.0.0'
+      version: 'v1.1.0'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
       currentCharte: '',
-      home: {
-        situation: true,
-        search_engine: true,
-        approche: true,
-        actualite: true,
-        testimonials: true,
-        cta: true,
-        faq: true,
-        seo_content: true
-      }
+      situationSlider: true,
+      displayPhoneNumber: true,
+      directories: {
+        caty: true,
+        msba: false,
+        pathologies: true,
+        other: true
+      },
+      contactForm: {
+        url: '/nous-contacter/jai-besoin-daide'
+      },
+      articlesSpecifiedPage: '/articles'
     },
     colors: {
       primary: "",
@@ -258,29 +260,33 @@ function setLogo(url) {
 
 function getCurrentCharte() {
   switch (true) {
-    case this.url.includes('av42'):
-      this.setCharte('av42', () => {
-        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/64ef1e3e0443573df843b6df_av42dark.png')
-        this.setColors('#060030', '#0f4c81', '#f3e61f', '#f0a347'),
-        this.options.home.faq = false
-
-        this.desindexation()
-      })
-      break;
     case this.url.includes('https://engages-inclusion.harmonie-mutuelle.fr/'):
       this.setCharte('hm', () => {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/655c71ecb736f6193d11eeb9_logo-hm-v2.svg')
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
-        this.options.home.faq = false
+        this.options = {
+          currentCharte: 'hm',
+          situationSlider: false,
+          displayPhoneNumber: false,
+          directories: {
+            caty: false,
+            msba: true,
+            pathologies: true,
+            other: true
+          },
+          contactForm: {
+            url: '/nous-contacter/jai-besoin-detre-accompagne'
+          },
+          articlesSpecifiedPage: '/articles?portail=Handicap'
+        }
 
         this.desindexation()
       })
-    break;
+      break;
     default:
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
-        this.options.home.faq = true
       })
       break;
   }
@@ -307,10 +313,10 @@ function noEnter(event) {
   * [value: noEnter(event)] 
   */
 
-  if(event.key === "Enter") {
+  if (event.key === "Enter") {
     event.preventDefault()
   }
-  
+
 }
 
 function initModule() {
