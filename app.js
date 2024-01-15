@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.1.2'
+      version: 'v1.2.0'
     },
     url: window.location.href,
     logo: "",
@@ -262,7 +262,7 @@ function setLogo(url) {
 
 function getCurrentCharte() {
   switch (true) {
-    case this.url.includes('https://engages-inclusion.harmonie-mutuelle.fr/'):
+    case (this.url.includes('https://engages-inclusion.harmonie-mutuelle.fr/') || this.url.includes('?dev=hm')):
       this.setCharte('hm', () => {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/655c71ecb736f6193d11eeb9_logo-hm-v2.svg')
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
