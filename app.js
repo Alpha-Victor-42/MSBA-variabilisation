@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.1.1'
+      version: 'v1.1.2'
     },
     url: window.location.href,
     logo: "",
@@ -10,6 +10,7 @@ function data() {
       currentCharte: '',
       situationSlider: true,
       displayPhoneNumber: true,
+      homeContactBloc: true,
       directories: {
         defaultDirectoryUrl: '/preprod/annuaires/annuaire-d-etablissements',
         caty: true,
@@ -269,6 +270,7 @@ function getCurrentCharte() {
           currentCharte: 'hm',
           situationSlider: false,
           displayPhoneNumber: false,
+          homeContactBloc: false,
           directories: {
             defaultDirectoryUrl: '/preprod/annuaires/annuaire-des-etablissements',
             caty: false,
