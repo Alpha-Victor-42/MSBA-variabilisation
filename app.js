@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.2.2'
+      version: 'v1.2.3'
     },
     url: window.location.href,
     logo: "",
@@ -126,7 +126,7 @@ function data() {
     setColors,
     setLogo,
     initModule,
-    desindexation,
+    setMetasBalises,
     noEnter
   }
 }
@@ -286,7 +286,7 @@ function getCurrentCharte() {
           articlesSpecifiedPage: '/articles?portail=Handicap'
         }
 
-        this.desindexation()
+        this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'favicon.ico')
       })
       break;
     default:
@@ -300,13 +300,22 @@ function getCurrentCharte() {
   this.initModule()
 }
 
-function desindexation() {
-  const meta = document.createElement('meta')
+function setMetasBalises(title, favicon) {
+  // Créer et configurer la méta-balise pour désindexer la page
+  const desindexMeta = document.createElement('meta');
+  desindexMeta.setAttribute('name', 'robots');
+  desindexMeta.setAttribute('content', 'noindex, nofollow');
+  document.getElementsByTagName('head')[0].appendChild(desindexMeta);
 
-  meta.setAttribute('name', 'robots')
-  meta.setAttribute('content', 'noindex, nofollow')
+  // Modifier la balise title de la page
+  document.title = title;
 
-  document.getElementsByTagName('head')[0].appendChild(meta)
+  // Modifier le favicon
+  let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = `./src/${favicon}`;
+  document.getElementsByTagName('head')[0].appendChild(link);
 }
 
 function noEnter(event) {
