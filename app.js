@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.2.3'
+      version: 'v1.2.4'
     },
     url: window.location.href,
     logo: "",
@@ -286,7 +286,7 @@ function getCurrentCharte() {
           articlesSpecifiedPage: '/articles?portail=Handicap'
         }
 
-        this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'favicon.ico')
+        this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
       })
       break;
     default:
@@ -314,7 +314,7 @@ function setMetasBalises(title, favicon) {
   let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
   link.type = 'image/x-icon';
   link.rel = 'shortcut icon';
-  link.href = `./src/${favicon}`;
+  link.href = favicon`;
   document.getElementsByTagName('head')[0].appendChild(link);
 }
 
