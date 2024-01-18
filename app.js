@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.3.0'
+      version: 'v1.3.1'
     },
     url: window.location.href,
     logo: "",
@@ -12,7 +12,7 @@ function data() {
       displayPhoneNumber: true,
       homeContactBloc: true,
       directories: {
-        defaultDirectoryUrl: '/preprod/annuaires/annuaire-d-etablissements',
+        defaultDirectoryUrl: '/annuaires/annuaire-d-etablissements',
         caty: true,
         msba: false,
         pathologies: true,
