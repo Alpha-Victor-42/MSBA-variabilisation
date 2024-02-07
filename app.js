@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.3.2'
+      version: 'v1.3.3'
     },
     url: window.location.href,
     logo: "",
@@ -21,7 +21,8 @@ function data() {
       contactForm: {
         url: '/nous-contacter/jai-besoin-daide'
       },
-      articlesSpecifiedPage: '/articles'
+      articlesSpecifiedPage: '/articles',
+      testimonials: true
     },
     colors: {
       primary: "",
@@ -283,7 +284,8 @@ function getCurrentCharte() {
           contactForm: {
             url: '/nous-contacter/jai-besoin-detre-accompagne'
           },
-          articlesSpecifiedPage: '/articles?portail=Handicap'
+          articlesSpecifiedPage: '/articles?portail=Handicap',
+          testimonials: false
         }
 
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
