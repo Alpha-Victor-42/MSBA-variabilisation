@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.3.3'
+      version: 'v1.4.0'
     },
     url: window.location.href,
     logo: "",
@@ -289,6 +289,16 @@ function getCurrentCharte() {
         }
 
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
+      })
+      break;
+    case (this.url.includes('?dev=te')):
+      this.setCharte('te', () => {
+        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/65c4b63fc94757f6855a5eea_TotalEnergies_Logo_RGB.png')
+        this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
+
+        this.options.currentCharte = 'te'
+
+        this.setMetasBalises('Total Energie - []', 'https://www.totalenergies.fr/typo3conf/ext/de_site_package/Resources/Public/Dist/Favicon/favicon.ico')
       })
       break;
     default:
