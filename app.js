@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.0'
+      version: 'v1.4.1'
     },
     url: window.location.href,
     logo: "",
@@ -12,7 +12,7 @@ function data() {
       displayPhoneNumber: true,
       homeContactBloc: true,
       directories: {
-        defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
+        defaultDirectoryUrl: '/annuaires/annuaire-etablissements',
         caty: true,
         msba: false,
         pathologies: true,
@@ -39,6 +39,7 @@ function data() {
         text_block: "",
         rich_text: "",
         bold_text: "",
+        etab_card_location: "",
         headings: {
           h1: "",
           h3: "",
@@ -144,6 +145,7 @@ function setCharte(prefix, setParameters) {
       text_block: `${prefix}-text_block`,
       rich_text: `${prefix}-rich_text`,
       bold_text: `${prefix}-bold_text`,
+      etab_card_location: `${prefix}-etab_card_location`,
       headings: {
         h1: `${prefix}-heading_h1`,
         h3: `${prefix}-heading_h3`,
