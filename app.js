@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.1'
+      version: 'v1.4.2'
     },
     url: window.location.href,
     logo: "",
@@ -33,6 +33,7 @@ function data() {
     classes: {
       body: "",
       home_image: "",
+      tabs: "",
       texts: {
         links: "",
         menu_title: "",
@@ -139,6 +140,7 @@ function setCharte(prefix, setParameters) {
   this.classes = {
     body: `${prefix}-body`,
     home_image: `${prefix}-home_image`,
+    tabs: `${prefix}-tabs`,
     texts: {
       links: `${prefix}-text_link`,
       menu_title: `${prefix}-menu_title`,
