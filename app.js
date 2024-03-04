@@ -302,8 +302,8 @@ function getCurrentCharte() {
         this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
 
         this.options = {
-          currentCharte = 'te',
-          displayContactLink = false
+          currentCharte: 'te',
+          displayContactLink: false
         }
 
         this.setMetasBalises('Total Energie - []', 'https://www.totalenergies.fr/typo3conf/ext/de_site_package/Resources/Public/Dist/Favicon/favicon.ico')
