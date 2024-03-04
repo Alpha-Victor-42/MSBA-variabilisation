@@ -7,6 +7,7 @@ function data() {
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
+      displayContactLink: true,
       currentCharte: '',
       situationSlider: true,
       displayPhoneNumber: true,
@@ -300,7 +301,10 @@ function getCurrentCharte() {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/65c4b63fc94757f6855a5eea_TotalEnergies_Logo_RGB.png')
         this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
 
-        this.options.currentCharte = 'te'
+        this.options = {
+          currentCharte = 'te',
+          displayContactLink = false
+        }
 
         this.setMetasBalises('Total Energie - []', 'https://www.totalenergies.fr/typo3conf/ext/de_site_package/Resources/Public/Dist/Favicon/favicon.ico')
       })
