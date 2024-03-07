@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.6'
+      version: 'v1.4.7'
     },
     url: window.location.href,
     logo: "",
@@ -276,6 +276,7 @@ function getCurrentCharte() {
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
         this.options = {
           currentCharte: 'hm',
+	  displayContactLink: true,
           situationSlider: false,
           homeContactBloc: false,
           directories: {
