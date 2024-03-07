@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.5'
+      version: 'v1.4.6'
     },
     url: window.location.href,
     logo: "",
@@ -277,7 +277,6 @@ function getCurrentCharte() {
         this.options = {
           currentCharte: 'hm',
           situationSlider: false,
-          displayPhoneNumber: false,
           homeContactBloc: false,
           directories: {
             defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
@@ -303,6 +302,7 @@ function getCurrentCharte() {
 
         this.options = {
           currentCharte: 'te',
+	  displayPhoneNumber: false,
           displayContactLink: false
         }
 
