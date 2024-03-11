@@ -300,7 +300,7 @@ function getCurrentCharte() {
       break;
     case (this.url.includes('?dev=te') || this.url.includes('https://msba-2023.webflow.io/')):
       this.setCharte('te', () => {
-        this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/65c4b63fc94757f6855a5eea_TotalEnergies_Logo_RGB.png')
+        this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
 
         this.options = {
@@ -324,7 +324,7 @@ function getCurrentCharte() {
           testimonials: true
         }
 
-        this.setMetasBalises('Total Energie - []', 'https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
+        this.setMetasBalises('Total Energie - []', 'https://assets-global.website-files.com/649c0498976f3a3f955fb9fc/65af865de1e5742c93c8db43_61f94b48d903592eb8c28207_favicon-hospital-template.svg')
       })
       break;
     default:
