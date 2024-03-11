@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.9'
+      version: 'v1.4.10'
     },
     url: window.location.href,
     logo: "",
@@ -309,7 +309,7 @@ function getCurrentCharte() {
 	        displayContactLink: false,
           displayEntrepriseHandi: false,
           situationSlider: true,
-          homeContactBloc: false,
+          homeContactBloc: true,
           directories: {
             defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
             caty: false,
@@ -324,7 +324,7 @@ function getCurrentCharte() {
           testimonials: true
         }
 
-        this.setMetasBalises('Total Energie - []', 'https://www.totalenergies.fr/typo3conf/ext/de_site_package/Resources/Public/Dist/Favicon/favicon.ico')
+        this.setMetasBalises('Total Energie - []', 'https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
       })
       break;
     default:
