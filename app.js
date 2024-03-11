@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.7'
+      version: 'v1.4.8'
     },
     url: window.location.href,
     logo: "",
@@ -276,7 +276,7 @@ function getCurrentCharte() {
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
         this.options = {
           currentCharte: 'hm',
-	  displayContactLink: true,
+	        displayContactLink: true,
           situationSlider: false,
           homeContactBloc: false,
           directories: {
@@ -303,8 +303,22 @@ function getCurrentCharte() {
 
         this.options = {
           currentCharte: 'te',
-	  displayPhoneNumber: false,
-          displayContactLink: false
+          displayPhoneNumber: false,
+	        displayContactLink: false,
+          situationSlider: true,
+          homeContactBloc: false,
+          directories: {
+            defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
+            caty: false,
+            msba: true,
+            pathologies: true,
+            other: true
+          },
+          contactForm: {
+            url: ''
+          },
+          articlesSpecifiedPage: '/articles',
+          testimonials: true
         }
 
         this.setMetasBalises('Total Energie - []', 'https://www.totalenergies.fr/typo3conf/ext/de_site_package/Resources/Public/Dist/Favicon/favicon.ico')
