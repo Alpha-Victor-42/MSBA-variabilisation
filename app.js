@@ -1,13 +1,14 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.8'
+      version: 'v1.4.9'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
       displayContactLink: true,
+      displayEntrepriseHandi: true,
       currentCharte: '',
       situationSlider: true,
       displayPhoneNumber: true,
@@ -277,6 +278,7 @@ function getCurrentCharte() {
         this.options = {
           currentCharte: 'hm',
 	        displayContactLink: true,
+          displayEntrepriseHandi: true,
           situationSlider: false,
           homeContactBloc: false,
           directories: {
@@ -296,7 +298,7 @@ function getCurrentCharte() {
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
       })
       break;
-    case (this.url.includes('?dev=te')):
+    case (this.url.includes('?dev=te') || this.url.includes('https://msba-2023.webflow.io/')):
       this.setCharte('te', () => {
         this.setLogo('https://uploads-ssl.webflow.com/649c0498976f3a3f955fb9fc/65c4b63fc94757f6855a5eea_TotalEnergies_Logo_RGB.png')
         this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
@@ -305,6 +307,7 @@ function getCurrentCharte() {
           currentCharte: 'te',
           displayPhoneNumber: false,
 	        displayContactLink: false,
+          displayEntrepriseHandi: false,
           situationSlider: true,
           homeContactBloc: false,
           directories: {
