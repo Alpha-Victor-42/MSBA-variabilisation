@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.11'
+      version: 'v1.4.13'
     },
     url: window.location.href,
     logo: "",
@@ -9,6 +9,7 @@ function data() {
     options: {
       displayContactLink: true,
       displayEntrepriseHandi: true,
+      displayRecoBlock: true,
       currentCharte: '',
       situationSlider: true,
       displayPhoneNumber: true,
@@ -279,6 +280,7 @@ function getCurrentCharte() {
           currentCharte: 'hm',
 	        displayContactLink: true,
           displayEntrepriseHandi: true,
+          displayRecoBlock: false,
           situationSlider: false,
           homeContactBloc: false,
           directories: {
@@ -306,6 +308,7 @@ function getCurrentCharte() {
         this.options = {
           currentCharte: 'te',
           displayPhoneNumber: false,
+          displayRecoBlock: false,
 	        displayContactLink: false,
           displayEntrepriseHandi: false,
           situationSlider: true,
