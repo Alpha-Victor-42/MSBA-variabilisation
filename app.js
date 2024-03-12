@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.13'
+      version: 'v1.4.14'
     },
     url: window.location.href,
     logo: "",
@@ -300,7 +300,7 @@ function getCurrentCharte() {
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
       })
       break;
-    case (this.url.includes('?dev=te') || this.url.includes('https://msba-2023.webflow.io/')):
+    case (this.url.includes('?dev=te') || this.url.includes('https://accompagnement-aidants-te.harmonie-mutuelle.fr')):
       this.setCharte('te', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#ED0000', '#374649', '#7098A7', '#B7CBD3')
