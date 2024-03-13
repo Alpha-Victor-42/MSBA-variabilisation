@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.14'
+      version: 'v1.4.15'
     },
     url: window.location.href,
     logo: "",
@@ -19,7 +19,8 @@ function data() {
         caty: true,
         msba: false,
         pathologies: true,
-        other: true
+        other: true,
+        contact: true
       },
       contactForm: {
         url: '/nous-contacter/jai-besoin-daide'
@@ -288,7 +289,8 @@ function getCurrentCharte() {
             caty: false,
             msba: true,
             pathologies: true,
-            other: true
+            other: true,
+            contact: false
           },
           contactForm: {
             url: '/nous-contacter/jai-besoin-detre-accompagne'
@@ -318,7 +320,8 @@ function getCurrentCharte() {
             caty: false,
             msba: true,
             pathologies: true,
-            other: true
+            other: true,
+            contact: false
           },
           contactForm: {
             url: ''
