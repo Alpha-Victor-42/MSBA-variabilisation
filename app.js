@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.15'
+      version: 'v1.4.16'
     },
     url: window.location.href,
     logo: "",
@@ -327,7 +327,7 @@ function getCurrentCharte() {
             url: ''
           },
           articlesSpecifiedPage: '/articles',
-          testimonials: true
+          testimonials: false
         }
 
         this.setMetasBalises('Total Energie - []', 'https://assets-global.website-files.com/649c0498976f3a3f955fb9fc/65af865de1e5742c93c8db43_61f94b48d903592eb8c28207_favicon-hospital-template.svg')
