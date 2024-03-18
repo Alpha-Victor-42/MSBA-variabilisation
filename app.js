@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.4.18'
+      version: 'v1.4.19'
     },
     url: window.location.href,
     logo: "",
@@ -279,7 +279,7 @@ function getCurrentCharte() {
         this.setColors('#EA5906', '#EF7C00', '#FDC41D', '#575656')
         this.options = {
           currentCharte: 'hm',
-	        displayContactLink: true,
+          displayContactLink: true,
           displayEntrepriseHandi: true,
           displayRecoBlock: false,
           situationSlider: false,
@@ -311,7 +311,7 @@ function getCurrentCharte() {
           currentCharte: 'te',
           displayPhoneNumber: false,
           displayRecoBlock: false,
-	        displayContactLink: false,
+          displayContactLink: false,
           displayEntrepriseHandi: false,
           situationSlider: true,
           homeContactBloc: false,
@@ -351,15 +351,19 @@ function setMetasBalises(title, favicon) {
   desindexMeta.setAttribute('content', 'noindex, nofollow');
   document.getElementsByTagName('head')[0].appendChild(desindexMeta);
 
-  // Modifier la balise title de la page
-  document.title = title;
+  if (title && favicon) {
+    // Modifier la balise title de la page
+    document.title = title;
 
-  // Modifier le favicon
-  let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-  link.type = 'image/x-icon';
-  link.rel = 'shortcut icon';
-  link.href = favicon;
-  document.getElementsByTagName('head')[0].appendChild(link);
+    // Modifier le favicon
+    let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = favicon;
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
+
+
 }
 
 function noEnter(event) {
