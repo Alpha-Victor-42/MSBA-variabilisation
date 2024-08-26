@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.5.0'
+      version: 'v1.5.1'
     },
     url: window.location.href,
     logo: "",
@@ -373,7 +373,6 @@ function setMetasBalises(title, favicon) {
 }
 
 function addMatomoScript(siteID,) {
-  document.addEventListener('DOMContentLoaded', function () {
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
@@ -401,8 +400,7 @@ function addMatomoScript(siteID,) {
 
     document.body.appendChild(noscriptTag);
 
-  })
-
+    console.log('Matomo', siteID)
 }
 
 function noEnter(event) {
