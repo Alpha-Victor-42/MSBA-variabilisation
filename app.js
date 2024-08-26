@@ -128,6 +128,7 @@ function data() {
       }
     },
     getCurrentCharte,
+    addMatomoScript,
     setCharte,
     setConditionalCollectionsItems,
     setColors,
@@ -271,6 +272,8 @@ function setLogo(url) {
   this.logo = url
 }
 
+
+
 function getCurrentCharte() {
   switch (true) {
     case (this.url.includes('https://engages-inclusion.harmonie-mutuelle.fr/') || this.url.includes('?dev=hm')):
@@ -300,6 +303,7 @@ function getCurrentCharte() {
         }
 
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
+        this.addMatomoScript("14")
       })
       break;
     case (this.url.includes('?dev=te') || this.url.includes('https://accompagnement-aidants-te.harmonie-mutuelle.fr')):
@@ -330,6 +334,7 @@ function getCurrentCharte() {
           testimonials: false
         }
 
+        this.addMatomoScript("13")
         //this.setMetasBalises('Total Energie - []', 'https://assets-global.website-files.com/649c0498976f3a3f955fb9fc/65af865de1e5742c93c8db43_61f94b48d903592eb8c28207_favicon-hospital-template.svg')
       })
       break;
@@ -337,6 +342,7 @@ function getCurrentCharte() {
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
+        this.addMatomoScript("6")
       })
       break;
   }
@@ -363,6 +369,39 @@ function setMetasBalises(title, favicon) {
     document.getElementsByTagName('head')[0].appendChild(link);
   }
 
+
+}
+
+function addMatomoScript(siteID,) {
+  document.addEventListener('DOMContentLoaded', function () {
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://objectifautonomievyv.matomo.cloud/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', siteID]);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+
+    let noscriptTag = document.createElement('noscript')
+    let pTag = document.createElement('p')
+    let imgTag = document.createElement('img')
+
+    imgTag.src = `https://objectifautonomievyv.matomo.cloud/matomo.php?idsite=${siteID}&rec=1`
+    imgTag.style.border = "0";
+    imgTag.alt = "";
+
+    pTag.appendChild(imgTag);
+    noscriptTag.appendChild(pTag);
+
+    document.body.appendChild(noscriptTag);
+
+  })
 
 }
 
