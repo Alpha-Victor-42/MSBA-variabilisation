@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.6.1'
+      version: 'v1.7.0'
     },
     url: window.location.href,
     logo: "",
@@ -20,7 +20,7 @@ function data() {
         msba: true,
         pathologies: true,
         other: true,
-        contact: true
+        contact: false
       },
       contactForm: {
         url: '/nous-contacter/jai-besoin-daide'
