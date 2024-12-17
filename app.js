@@ -1,13 +1,13 @@
 function data() {
   return {
     config: {
-      version: 'v1.7.1'
+      version: 'v1.7.2'
     },
     url: window.location.href,
     logo: "",
     // Permet de définir les blocs affichés ou pas selon l'url
     options: {
-      displayContactLink: true,
+      displayContactLink: false,
       displayEntrepriseHandi: true,
       displayRecoBlock: true,
       currentCharte: '',
