@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.7.0'
+      version: 'v1.7.1'
     },
     url: window.location.href,
     logo: "",
