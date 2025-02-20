@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.7.2'
+      version: 'v1.8.0'
     },
     url: window.location.href,
     logo: "",
@@ -18,7 +18,7 @@ function data() {
         defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
         caty: false,
         msba: true,
-        pathologies: true,
+        pathologies: false,
         other: true,
         contact: false
       },
@@ -291,7 +291,7 @@ function getCurrentCharte() {
             defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
             caty: false,
             msba: true,
-            pathologies: true,
+            pathologies: false,
             other: true,
             contact: false
           },
@@ -323,7 +323,7 @@ function getCurrentCharte() {
             defaultDirectoryUrl: '/annuaires/annuaire-des-etablissements',
             caty: false,
             msba: true,
-            pathologies: true,
+            pathologies: false,
             other: true,
             contact: false
           },
