@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.8'
+      version: 'v1.8.9'
     },
     url: window.location.href,
     logo: "",
@@ -376,53 +376,58 @@ function setMetasBalises(title, favicon) {
 
 function addMatomoScript(siteID) {
   if (window.matomoScriptLoaded) {
-    console.log('Matomo script already loaded');
-    return;
+      console.log('Matomo script already loaded');
+      return;
   }
 
   window.matomoScriptLoaded = true;
 
   var _paq = window._paq = window._paq || [];
-
+  
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
-  _paq.push(["disableAutoTracking"]); // Désactive le tracking automatique pour éviter les doublons
-  _paq.push(["disablePerformanceTracking"]); // Désactive le suivi des performances
+  _paq.push(["setDoNotTrack", true]); // ✅ Remplace disableAutoTracking
+  _paq.push(["disablePerformanceTracking"]); // Désactive le tracking des performances
   _paq.push(["enableLinkTracking"]); // Active le suivi des liens internes
 
   (function () {
-    var u = "https://objectifautonomievyv.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u + 'matomo.php']);
-    _paq.push(['setSiteId', siteID]);
-    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-    g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js';
-    s.parentNode.insertBefore(g, s);
+      var u = "https://objectifautonomievyv.matomo.cloud/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', siteID]);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js';
+      s.parentNode.insertBefore(g, s);
   })();
 
   console.log('Matomo initialized for site ID:', siteID);
 
-  // Fonction pour tracker un changement de page
+  // Vérifier si Matomo est bien chargé avant d'ajouter des événements
   function trackCustomPageView() {
-    var newPage = window.location.pathname + window.location.search;
-    console.log("Matomo: Tracking page change ->", newPage);
-    _paq.push(["setCustomUrl", newPage]);
-    _paq.push(["trackPageView"]);
+      if (typeof _paq !== "undefined") {
+          var newPage = window.location.pathname + window.location.search;
+          console.log("Matomo: Tracking page change ->", newPage);
+          _paq.push(["setCustomUrl", newPage]);
+          _paq.push(["trackPageView"]);
+      } else {
+          console.warn("Matomo is not initialized yet");
+      }
   }
 
   // Détecter un changement d'URL si c'est une SPA (Alpine.js, Vue, React...)
   window.addEventListener("popstate", function () {
-    trackCustomPageView();
+      trackCustomPageView();
   });
 
   // Suivi manuel des clics sur les liens internes
   document.addEventListener("DOMContentLoaded", function () {
-    document.body.addEventListener("click", function (event) {
-      if (event.target.tagName === "A" && event.target.href.startsWith(window.location.origin)) {
-        setTimeout(trackCustomPageView, 500); // Attente pour éviter un mauvais tracking
-      }
-    });
+      document.body.addEventListener("click", function (event) {
+          if (event.target.tagName === "A" && event.target.href.startsWith(window.location.origin)) {
+              setTimeout(trackCustomPageView, 500); // Attente pour éviter un mauvais tracking
+          }
+      });
   });
 }
+
 
 function noEnter(event) {
 
