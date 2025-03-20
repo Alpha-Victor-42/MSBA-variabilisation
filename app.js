@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.3'
+      version: 'v1.8.4'
     },
     url: window.location.href,
     logo: "",
@@ -303,6 +303,7 @@ function getCurrentCharte() {
         }
 
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
+        console.log("getCurrentCharte: Calling Matomo script for siteID:");
         this.addMatomoScript("14")
       })
       break;
