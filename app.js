@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.6'
+      version: 'v1.8.7'
     },
     url: window.location.href,
     logo: "",
@@ -389,6 +389,7 @@ function addMatomoScript(siteID,) {
     _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
     //_paq.push(["disableCookies"]);
     window._paq.push(['disableAutoTracking']);
+    window._paq.push(["disablePerformanceTracking"]); 
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function () {
@@ -410,7 +411,7 @@ function addMatomoScript(siteID,) {
     pTag.appendChild(imgTag);
     noscriptTag.appendChild(pTag);
 
-    document.body.appendChild(noscriptTag);
+    //document.body.appendChild(noscriptTag);
 
     console.log('Matomo', siteID)
 }
