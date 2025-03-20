@@ -343,6 +343,7 @@ function getCurrentCharte() {
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
+        console.log("getCurrentCharte: Calling Matomo script for siteID:");
         this.addMatomoScript("6")
       })
       break;
