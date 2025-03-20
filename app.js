@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.0'
+      version: 'v1.8.1'
     },
     url: window.location.href,
     logo: "",
@@ -373,6 +373,14 @@ function setMetasBalises(title, favicon) {
 }
 
 function addMatomoScript(siteID,) {
+
+    if (window.matomoScriptLoaded) {
+      console.log('Matomo script already loaded');
+      return;
+    }
+
+    window.matomoScriptLoaded = true;
+
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
