@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.9'
+      version: 'v1.8.10'
     },
     url: window.location.href,
     logo: "",
@@ -303,7 +303,6 @@ function getCurrentCharte() {
         }
 
         this.setMetasBalises('Harmonie Mutuelle - Engages inclusion', 'https://www.harmonie-mutuelle.fr/themes/custom/harmonie_website/images/favicon.png')
-        console.log("getCurrentCharte: Calling Matomo script for siteID:");
         this.addMatomoScript("14")
       })
       break;
@@ -343,7 +342,6 @@ function getCurrentCharte() {
       this.setCharte('vyv', () => {
         this.setLogo('https://assets-global.website-files.com/61f94b48d90359310ec28169/632abf38272edc1649ee5386_Logo_MSBA.svg')
         this.setColors('#472583', '#82358B', "#2CBFDC", "#201E62")
-        console.log("getCurrentCharte: Calling Matomo script for siteID:");
         this.addMatomoScript("6")
       })
       break;
@@ -374,60 +372,36 @@ function setMetasBalises(title, favicon) {
 
 }
 
-function addMatomoScript(siteID) {
-  if (window.matomoScriptLoaded) {
-      console.log('Matomo script already loaded');
-      return;
-  }
-
-  window.matomoScriptLoaded = true;
-
-  var _paq = window._paq = window._paq || [];
-  
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
-  _paq.push(["setDoNotTrack", true]); // ✅ Remplace disableAutoTracking
-  _paq.push(["disablePerformanceTracking"]); // Désactive le tracking des performances
-  _paq.push(["enableLinkTracking"]); // Active le suivi des liens internes
-
-  (function () {
+function addMatomoScript(siteID,) {
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
+    _paq.push(["disableCookies"]);
+    //_paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
       var u = "https://objectifautonomievyv.matomo.cloud/";
       _paq.push(['setTrackerUrl', u + 'matomo.php']);
       _paq.push(['setSiteId', siteID]);
       var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-      g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js';
-      s.parentNode.insertBefore(g, s);
-  })();
+      g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
 
-  console.log('Matomo initialized for site ID:', siteID);
+    let noscriptTag = document.createElement('noscript')
+    let pTag = document.createElement('p')
+    let imgTag = document.createElement('img')
 
-  // Vérifier si Matomo est bien chargé avant d'ajouter des événements
-  function trackCustomPageView() {
-      if (typeof _paq !== "undefined") {
-          var newPage = window.location.pathname + window.location.search;
-          console.log("Matomo: Tracking page change ->", newPage);
-          _paq.push(["setCustomUrl", newPage]);
-          _paq.push(["trackPageView"]);
-      } else {
-          console.warn("Matomo is not initialized yet");
-      }
-  }
+    imgTag.src = `https://objectifautonomievyv.matomo.cloud/matomo.php?idsite=${siteID}&rec=1`
+    imgTag.style.border = "0";
+    imgTag.alt = "";
 
-  // Détecter un changement d'URL si c'est une SPA (Alpine.js, Vue, React...)
-  window.addEventListener("popstate", function () {
-      trackCustomPageView();
-  });
+    pTag.appendChild(imgTag);
+    noscriptTag.appendChild(pTag);
 
-  // Suivi manuel des clics sur les liens internes
-  document.addEventListener("DOMContentLoaded", function () {
-      document.body.addEventListener("click", function (event) {
-          if (event.target.tagName === "A" && event.target.href.startsWith(window.location.origin)) {
-              setTimeout(trackCustomPageView, 500); // Attente pour éviter un mauvais tracking
-          }
-      });
-  });
+    //document.body.appendChild(noscriptTag);
+
+    console.log('Matomo', siteID)
 }
-
 
 function noEnter(event) {
 
