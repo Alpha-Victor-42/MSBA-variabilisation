@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.5'
+      version: 'v1.8.6'
     },
     url: window.location.href,
     logo: "",
@@ -384,12 +384,12 @@ function addMatomoScript(siteID,) {
     window.matomoScriptLoaded = true;
 
     var _paq = window._paq = window._paq || [];
+    
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
     //_paq.push(["disableCookies"]);
-    if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
-        _paq.push(['trackPageView']);
-    }
+    window._paq.push(['disableAutoTracking']);
+    _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function () {
       var u = "https://objectifautonomievyv.matomo.cloud/";
