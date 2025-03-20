@@ -1,7 +1,7 @@
 function data() {
   return {
     config: {
-      version: 'v1.8.7'
+      version: 'v1.8.8'
     },
     url: window.location.href,
     logo: "",
@@ -374,46 +374,54 @@ function setMetasBalises(title, favicon) {
 
 }
 
-function addMatomoScript(siteID,) {
+function addMatomoScript(siteID) {
+  if (window.matomoScriptLoaded) {
+    console.log('Matomo script already loaded');
+    return;
+  }
 
-    if (window.matomoScriptLoaded) {
-      console.log('Matomo script already loaded');
-      return;
-    }
+  window.matomoScriptLoaded = true;
 
-    window.matomoScriptLoaded = true;
+  var _paq = window._paq = window._paq || [];
 
-    var _paq = window._paq = window._paq || [];
-    
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
-    //_paq.push(["disableCookies"]);
-    window._paq.push(['disableAutoTracking']);
-    window._paq.push(["disablePerformanceTracking"]); 
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function () {
-      var u = "https://objectifautonomievyv.matomo.cloud/";
-      _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      _paq.push(['setSiteId', siteID]);
-      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-      g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g, s);
-    })();
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setCookieDomain", "*.objectif-autonomie.fr"]);
+  _paq.push(["disableAutoTracking"]); // Désactive le tracking automatique pour éviter les doublons
+  _paq.push(["disablePerformanceTracking"]); // Désactive le suivi des performances
+  _paq.push(["enableLinkTracking"]); // Active le suivi des liens internes
 
-    let noscriptTag = document.createElement('noscript')
-    let pTag = document.createElement('p')
-    let imgTag = document.createElement('img')
+  (function () {
+    var u = "https://objectifautonomievyv.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u + 'matomo.php']);
+    _paq.push(['setSiteId', siteID]);
+    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+    g.type = 'text/javascript'; g.async = true; g.src = '//cdn.matomo.cloud/objectifautonomievyv.matomo.cloud/matomo.js';
+    s.parentNode.insertBefore(g, s);
+  })();
 
-    imgTag.src = `https://objectifautonomievyv.matomo.cloud/matomo.php?idsite=${siteID}&rec=1`
-    imgTag.style.border = "0";
-    imgTag.alt = "";
+  console.log('Matomo initialized for site ID:', siteID);
 
-    pTag.appendChild(imgTag);
-    noscriptTag.appendChild(pTag);
+  // Fonction pour tracker un changement de page
+  function trackCustomPageView() {
+    var newPage = window.location.pathname + window.location.search;
+    console.log("Matomo: Tracking page change ->", newPage);
+    _paq.push(["setCustomUrl", newPage]);
+    _paq.push(["trackPageView"]);
+  }
 
-    //document.body.appendChild(noscriptTag);
+  // Détecter un changement d'URL si c'est une SPA (Alpine.js, Vue, React...)
+  window.addEventListener("popstate", function () {
+    trackCustomPageView();
+  });
 
-    console.log('Matomo', siteID)
+  // Suivi manuel des clics sur les liens internes
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.addEventListener("click", function (event) {
+      if (event.target.tagName === "A" && event.target.href.startsWith(window.location.origin)) {
+        setTimeout(trackCustomPageView, 500); // Attente pour éviter un mauvais tracking
+      }
+    });
+  });
 }
 
 function noEnter(event) {
